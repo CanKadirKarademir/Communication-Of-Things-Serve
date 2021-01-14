@@ -22,7 +22,7 @@ class AuthValidator {
     try {
       await joi
         .object({
-          UserPassword: joi.string().max(99).required(),
+          UserPassword: joi.string().max(8).required(),
         })
         .validateAsync(req.body);
       next();
@@ -45,7 +45,7 @@ class AuthValidator {
             .min(2)
             .max(50)
             .pattern(new RegExp("^[A-Za-zÇçÖöŞşÜüĞğİı ]+$")),
-          UserPassword: joi.string().max(6).required(),
+          UserPassword: joi.string().max(8).required(),
           UserEmail: joi.string().min(3).max(50).required(),
         })
         .validateAsync(req.body);

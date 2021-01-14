@@ -15,9 +15,10 @@ Content-Type: application/json
 token: {{token}}
 
 {
+    "UserName": "ismet",
     "UserFirstName": "ismet",
     "UserLastName": "kizgin",
-    "UserEmail": "fi@project.com",
+    "UserEmail": "ismet@project.com",
     "UserPassword": "password"
 }
 
@@ -28,7 +29,8 @@ Content-Type: application/json
 token: {{token}}
 
 {
-    "UserID": "3",
+    "Id": 2,
+    "UserName": "ismet_kzgn",
     "UserFirstName": "ismet",
     "UserLastName": "kizgin",
     "UserEmail": "fi@project.com",
@@ -42,5 +44,5 @@ Content-Type: application/json
 token: {{token}}
 
 {
-    "UserID": "4"
+    "Id": 3
 }

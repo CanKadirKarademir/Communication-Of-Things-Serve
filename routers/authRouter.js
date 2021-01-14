@@ -2,7 +2,7 @@ const router = require("express")();
 const jwt = require("jsonwebtoken");
 const TransactionsFactory = require("../database/transactionFactory");
 const { validators, verifyToken } = require("../middleware");
-const commonTransactions = TransactionsFactory.creating("userTransactions");
+const authTransaction = TransactionsFactory.creating("userTransactions");
 const authValidator = validators.authValidator;
 const tokenControl = verifyToken.tokenControl;
 const HttpStatusCode = require("http-status-codes");
@@ -10,7 +10,7 @@ const { errorSender } = require("../utils");
 
 router.post("/login", authValidator.login, async (req, res) => {
   try {
-    const result = await commonTransactions.findOneAsync(req.body);
+    const result = await authTransaction.findOneAsync(req.body);
     if (!result)
       throw errorSender.errorObject(
         HttpStatusCode.BAD_REQUEST,
@@ -37,7 +37,7 @@ router.delete(
   authValidator.delete,
   async (req, res) => {
     try {
-      const result = await commonTransactions.deleteAsync(
+      const result = await authTransaction.deleteAsync(
         Object.assign(req.body, {
           Id: req.decode.UserID,
         })
@@ -63,8 +63,8 @@ router.put(
   authValidator.update,
   async (req, res) => {
     try {
-      const result = await commonTransactions.updateAsync(req.body, {
-        UserID: req.decode.UserID,
+      const result = await authTransaction.updateAsync(req.body, {
+        Id: req.decode.UserID,
         UserPassword: req.body.UserPassword,
       });
 
@@ -88,10 +88,10 @@ router.put(
   authValidator.changePassword,
   async (req, res) => {
     try {
-      const result = await commonTransactions.updateAsync(
+      const result = await authTransaction.updateAsync(
         { UserPassword: req.body.NewPassword },
         {
-          UserID: req.decode.UserID,
+          Id: req.decode.UserID,
           UserPassword: req.body.UserPassword,
         }
       );
@@ -115,8 +115,8 @@ router.post(
   authValidator.passwordControl,
   async (req, res) => {
     try {
-      const result = await commonTransactions.findOneAsync({
-        UserID: req.decode.UserID,
+      const result = await authTransaction.findOneAsync({
+        Id: req.decode.UserID,
         UserPassword: req.body.UserPassword,
       });
       if (!result)

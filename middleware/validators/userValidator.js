@@ -9,7 +9,7 @@ class UserValidator extends CommonValidator {
     try {
       await joi
         .object({
-          UserID: joi.number().min(1).required(),
+          Id: joi.number().min(1).required(),
         })
         .validateAsync({ Id: parseInt(req.params.Id) });
       next();
@@ -22,7 +22,8 @@ class UserValidator extends CommonValidator {
     try {
       await joi
         .object({
-          UserID: joi.number().required(),
+          Id: joi.number().required(),
+          UserName: joi.string().max(20).required(),
           UserFirstName: joi
             .string()
             .max(50)
@@ -32,6 +33,7 @@ class UserValidator extends CommonValidator {
             .max(50)
             .pattern(new RegExp("^[A-Za-zÇçÖöŞşÜüĞğİı ]+$")),
           UserEmail: joi.string().max(50).email(),
+          UserPassword: joi.string().max(50).required(),
         })
         .validateAsync(req.body);
       next();
@@ -57,7 +59,7 @@ class UserValidator extends CommonValidator {
             .required(),
           UserEmail: joi.string().max(50).email().required(),
 
-          UserPassword: joi.string().max(6).required(),
+          UserPassword: joi.string().max(50).required(),
         })
         .validateAsync(req.body);
       next();

@@ -29,7 +29,7 @@ router.get(
   userValidator.paramId,
   async (req, res) => {
     try {
-      const result = await userTransactions.findAsync(req.params);
+      const result = await userTransactions.findOneAsync(req.params);
       res.json(result || {});
     } catch (err) {
       res
@@ -58,7 +58,7 @@ router.delete("/user", tokenControl, userValidator.bodyId, async (req, res) => {
 router.put("/user", tokenControl, userValidator.update, async (req, res) => {
   try {
     const result = await userTransactions.updateAsync(req.body, {
-      Id: req.body.Id,
+      Id: req.body.UserID,
     });
     if (!result.affectedRows)
       throw errorSender.errorObject(
