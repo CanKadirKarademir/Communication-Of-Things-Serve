@@ -65,7 +65,6 @@ router.put(
     try {
       const result = await authTransaction.updateAsync(req.body, {
         Id: req.decode.UserID,
-        UserPassword: req.body.UserPassword,
       });
 
       if (!result.affectedRows)
