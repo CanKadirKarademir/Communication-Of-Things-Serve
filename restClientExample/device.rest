@@ -1,0 +1,32 @@
+GET {{baseUrl}}/device HTTP/1.1
+Content-Type: application/application/json
+token: {{token}}
+
+###
+
+GET {{baseUrl}}/device/1 HTTP/1.1
+Content-Type: application/application/json
+token: {{token}}
+
+###
+
+POST {{baseUrl}}/device HTTP/1.1
+Content-Type: application/json
+token: {{token}}
+
+{
+    "DeviceName":"pencere",
+    "DeviceStatus":1,
+    "DeviceDateTime":"10.10.2021"
+}
+
+###
+
+PUT {{baseUrl}}/device HTTP/1.1
+Content-Type: application/json
+token: {{token}}
+
+{
+    "Id":1,
+    "DeviceName":"kapi",
+}
