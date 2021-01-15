@@ -31,6 +31,23 @@ router.post("/login", authValidator.login, async (req, res) => {
   }
 });
 
+router.post("/register", authValidator.register, async (req, res) => {
+  try {
+    const result = await authTransaction.insertAsync(req.body);
+    if (!result)
+      throw errorSender.errorObject(
+        HttpStatusCode.BAD_REQUEST,
+        "Something went wrong when user registration!"
+      );
+
+    res.json("User registired succesfully.");
+  } catch (error) {
+    res
+      .status(error.status || HttpStatusCode.INTERNAL_SERVER_ERROR)
+      .send(error.message);
+  }
+});
+
 router.delete(
   "/my-account",
   tokenControl,
