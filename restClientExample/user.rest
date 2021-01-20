@@ -15,9 +15,9 @@ Content-Type: application/json
 token: {{token}}
 
 {
-    "UserFirstName": "ismet",
-    "UserLastName": "kizgin",
-    "UserEmail": "ismet@project.com",
+    "UserFirstName": "kadir",
+    "UserLastName": "can",
+    "UserEmail": "can@project.com",
     "UserPassword": "password"
 }
 
@@ -28,10 +28,10 @@ Content-Type: application/json
 token: {{token}}
 
 {
-    "Id": 2,
+    "Id": 4,
     "UserFirstName": "ismet",
     "UserLastName": "kizgin",
-    "UserEmail": "fi@project.com",
+    "UserEmail": "kemal@project.com",
     "UserPassword": "password"
 }
 
@@ -42,5 +42,5 @@ Content-Type: application/json
 token: {{token}}
 
 {
-    "Id": 3
+    "Id": 5
 }

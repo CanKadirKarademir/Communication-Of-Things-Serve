@@ -58,7 +58,7 @@ router.delete("/user", tokenControl, userValidator.bodyId, async (req, res) => {
 router.put("/user", tokenControl, userValidator.update, async (req, res) => {
   try {
     const result = await userTransactions.updateAsync(req.body, {
-      Id: req.body.UserID,
+      Id: req.body.Id,
     });
     if (!result.affectedRows)
       throw errorSender.errorObject(
