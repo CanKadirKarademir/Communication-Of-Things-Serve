@@ -72,13 +72,15 @@ router.put(
   deviceValidator.update,
   async (req, res) => {
     try {
-      const result = await deviceTransactions.updateAsync(req.body);
+      const result = await deviceTransactions.updateAsync(req.body, {
+        Id: req.body.Id,
+      });
       if (!result.affectedRows)
         throw errorSender.errorObject(
           HttpStatusCode.GONE,
           "There is no such device ID in the system !"
         );
-      res.json("device information has been updated");
+      res.json("Device information has been updated");
     } catch (err) {
       res
         .status(err.status || HttpStatusCode.INTERNAL_SERVER_ERROR)

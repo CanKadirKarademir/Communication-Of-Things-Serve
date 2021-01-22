@@ -15,9 +15,8 @@ Content-Type: application/json
 token: {{token}}
 
 {
-    "DeviceName":"pencere",
+    "DeviceName":"kol",
     "DeviceStatus":1,
-    "DeviceDateTime":"10.10.2021"
 }
 
 ###
@@ -27,6 +26,6 @@ Content-Type: application/json
 token: {{token}}
 
 {
-    "Id":1,
-    "DeviceName":"kapi",
+    "Id":8,
+    "DeviceName":"kapinin"
 }

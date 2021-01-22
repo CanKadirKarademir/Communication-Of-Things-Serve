@@ -19,6 +19,7 @@ router.post("/login", authValidator.login, async (req, res) => {
 
     const payload = {
       UserID: result.Id,
+      UserTypeName: result.UserTypeName,
     };
     const token = jwt.sign(payload, req.app.get("api_key"), {
       expiresIn: "7d",
@@ -39,7 +40,6 @@ router.post("/register", authValidator.register, async (req, res) => {
         HttpStatusCode.BAD_REQUEST,
         "Something went wrong when user registration!"
       );
-
     res.json("User registired succesfully.");
   } catch (error) {
     res

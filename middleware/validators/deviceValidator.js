@@ -45,7 +45,7 @@ class DeviceValidator extends CommonValidator {
             .pattern(new RegExp("^[A-Za-zÇçÖöŞşÜüĞğİı ]+$"))
             .required(),
           DeviceStatus: joi.number(),
-          DeviceDateTime: joi.date().required(),
+          DeviceDateTime: joi.date(),
         })
         .validateAsync(req.body);
       next();

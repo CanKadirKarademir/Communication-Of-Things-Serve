@@ -2,7 +2,7 @@ POST {{baseUrl}}/login HTTP/1.1
 Content-Type: application/json
 
 {
-    "UserEmail": "fi@project.com",
+    "UserEmail": "can@project.com",
     "UserPassword": "password"
 }
 

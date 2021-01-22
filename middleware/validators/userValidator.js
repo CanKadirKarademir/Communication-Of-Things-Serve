@@ -19,7 +19,7 @@ class UserValidator extends CommonValidator {
             .max(50)
             .pattern(new RegExp("^[A-Za-zÇçÖöŞşÜüĞğİı ]+$")),
           UserEmail: joi.string().max(50).email(),
-          UserPassword: joi.string().max(50).required(),
+          UserTypeName: joi.string().max(20).required(),
         })
         .validateAsync(req.body);
       next();
@@ -43,7 +43,7 @@ class UserValidator extends CommonValidator {
             .pattern(new RegExp("^[A-Za-zÇçÖöŞşÜüĞğİı ]+$"))
             .required(),
           UserEmail: joi.string().max(50).email().required(),
-
+          UserTypeName: joi.string().max(20).required(),
           UserPassword: joi.string().max(50).required(),
         })
         .validateAsync(req.body);

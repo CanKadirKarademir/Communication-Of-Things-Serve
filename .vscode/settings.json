@@ -2,7 +2,7 @@
   "rest-client.environmentVariables": {
     "local": {
       "baseUrl": "http://localhost:5001",
-      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOjQsImlhdCI6MTYxMDc1MDA5MywiZXhwIjoxNjExMzU0ODkzfQ.C8MJRJDkWjN_P7KIhi9TPFqM8KGENbFx47oyF4URNWc"
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySUQiOjYsIlVzZXJUeXBlTmFtZSI6IlJvb3QiLCJpYXQiOjE2MTEyNDA1MjQsImV4cCI6MTYxMTg0NTMyNH0.trNy92plQnndg3s8-uWgUQAUm6H3mocBA8MJj6jItPs"
     }
   }
 }

@@ -1,4 +1,5 @@
 module.exports = {
   Root: "Root",
-  Manager: "Manager",
+  Administrator: "Administrator",
+  User: "User",
 };
