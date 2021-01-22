@@ -13,8 +13,8 @@ router.get(
   deviceValidator.limitAndOffset,
   async (req, res) => {
     try {
-      const result = await deviceTransactions.selectAsync(req.query, {
-        UserID: req.decode.UserID,
+      const result = await deviceTransactions.selectAsync({
+        where: { UserID: req.decode.UserID },
       });
       res.json(result);
     } catch (err) {
